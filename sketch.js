@@ -6,12 +6,17 @@ var startbutton1
 var a
 var settings_icon
 var menu_icon
+var menu_icon1
+var big_leftblock
+var white_background
+
 
 
 function preload(){
   background1 = loadImage("background1.jpg")
   settings_icon = loadImage("settings_icon.png")
   menu_icon = loadImage("menu_icon.png")
+  white_background = loadImage("White_background.jpg")
 }
 
 function setup() {
@@ -37,6 +42,26 @@ function setup() {
   title1.html("")
   title1.position(windowWidth/2-150,windowHeight/2-400)
 
+  menu_icon1 = createSprite(50,50);
+  menu_icon1.scale = 0.3;
+  menu_icon1.addImage(menu_icon);
+
+  settings_icon1 = createSprite(50,200);
+  settings_icon1.scale = 0.03;
+  settings_icon1.addImage(settings_icon);
+  //settings_icon1.visible = false;
+
+  //big_leftblock = createSprite(100,100,50,50);
+  //big_leftblock.addImage(white_background);
+  //big_leftblock.visible = false;
+
+  
+
+  
+  
+  
+  
+
 
 
   
@@ -61,6 +86,10 @@ function draw() {
       nextpage1();
     });
 
+    //if(mousePressedOver(menu_icon)){
+      //settings_icon1.visible = true
+      //big_leftblock = true
+    //}
   
 
   
@@ -71,6 +100,5 @@ function draw() {
 }
 
 function nextpage1(){
-  image(menu_icon,0,0,20,20);
-  console.log("working now")
+  
 }
