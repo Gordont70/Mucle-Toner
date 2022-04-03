@@ -9,6 +9,7 @@ var menu_icon
 var menu_icon1
 var big_leftblock
 var white_background
+var menu_button
 
 
 
@@ -38,42 +39,25 @@ function setup() {
   input = createInput("").attribute("placeholder","Enter your name");
   input.position(windowWidth/2-200, windowHeight/2-100)
 
+  menu_button = createButton("Menu")
+  menu_button.position(50,50)
+  
+
+  
+
   title1 = createElement("h1")
   title1.html("")
   title1.position(windowWidth/2-150,windowHeight/2-400)
 
-  menu_icon1 = createSprite(50,50);
-  menu_icon1.scale = 0.3;
-  menu_icon1.addImage(menu_icon);
-
-  settings_icon1 = createSprite(50,200);
-  settings_icon1.scale = 0.03;
-  settings_icon1.addImage(settings_icon);
-  //settings_icon1.visible = false;
-
-  //big_leftblock = createSprite(100,100,50,50);
-  //big_leftblock.addImage(white_background);
-  //big_leftblock.visible = false;
-
   
 
   
-  
-  
-  
-
-
-
-  
-
-  
-  
-
 
 }
 
 function draw() {
   background("grey");
+
   startbutton1.mousePressed(() => {
       //form1 = new Form();
       title.hide();
@@ -84,12 +68,14 @@ function draw() {
       console.log(a);
       title1.html("Hello "+ a + " are you a...")
       nextpage1();
-    });
+    }); 
 
-    //if(mousePressedOver(menu_icon)){
-      //settings_icon1.visible = true
-      //big_leftblock = true
-    //}
+    
+
+    /*menu_icon1.mousePressed(() => {
+      settings_icon.visible = true
+      big_leftblock.visible = true
+    }); */
   
 
   
@@ -100,5 +86,33 @@ function draw() {
 }
 
 function nextpage1(){
+  //menu_icon1 = createSprite(50,50);
+  //menu_icon1.scale = 0.3;
+  //menu_icon1.addImage(menu_icon);
+
+
+
+  big_leftblock = createSprite(100,100,50,50);
+  big_leftblock.addImage(white_background);
+  big_leftblock.visible = false;
   
+
+  settings_icon1 = createSprite(50,200);
+  settings_icon1.scale = 0.03;
+  settings_icon1.addImage(settings_icon);
+  settings_icon1.visible = false;
+
+  big_leftblock.depth = settings_icon1.depth;
+  settings_icon1.depth = settings_icon.depth+1
+
+  /*if(mousePressedOver(menu_icon)){
+      settings_icon1.visible = true
+      big_leftblock.visble = true
+    } */
+
+  menu_button.mousePressed(() => {
+    big_leftblock.visible = true
+    settings_icon.visible = true
+  });
+
 }
