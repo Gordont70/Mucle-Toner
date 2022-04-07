@@ -10,6 +10,7 @@ var menu_icon1
 var big_leftblock
 var white_background
 var menu_button
+var biginner_button
 
 
 
@@ -41,6 +42,10 @@ function setup() {
 
   menu_button = createButton("Menu")
   menu_button.position(50,50)
+
+  beginner_button = createButton("Beginner")
+  beginner_button.position(700,700)
+
   
 
   
@@ -81,7 +86,7 @@ function draw() {
   
 
 
-
+  beginnerpage1();
   drawSprites();
 }
 
@@ -105,14 +110,25 @@ function nextpage1(){
   big_leftblock.depth = settings_icon1.depth;
   settings_icon1.depth = settings_icon.depth+1
 
+
   /*if(mousePressedOver(menu_icon)){
       settings_icon1.visible = true
       big_leftblock.visble = true
     } */
 
-  menu_button.mousePressed(() => {
+  /*menu_button.mousePressed(() => {
     big_leftblock.visible = true
     settings_icon.visible = true
+  });*/
+
+}
+
+function beginnerpage1(){
+  beginner_button.mousePressed(() => {
+    title1.hide();
+    beginner_button.hide();
+  
+
   });
 
 }
